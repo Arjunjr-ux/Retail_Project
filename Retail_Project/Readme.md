@@ -170,6 +170,20 @@ This project demonstrates the complete data analytics workflow, from raw data cl
 
 ---
 
+## 📷 Dashboard Preview
+
+### Main Dashboard
+
+![Dashboard](Screenshots/Screenshot%202026-06-24%20041424.png)
+
+### KPI Cards
+
+![KPIs](Screenshots/Screenshot%202026-06-24%20041455.png)
+
+### Charts and Analysis
+
+![Charts](Screenshots/Screenshot%202026-06-24%20041538.png)
+
 ## 👨‍💻 Author
 
 **Arjun Baburaj**
