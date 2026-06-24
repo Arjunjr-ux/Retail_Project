@@ -49,33 +49,45 @@ if category != "All":
 if segment != "All":
     df = df[df["Segment"] == segment]
 
-# Monthly Sales Trend
+
 df["OrderDate"] = pd.to_datetime(df["OrderDate"])
 
-monthly_sales = (
-    df.groupby(df["OrderDate"].dt.to_period("M"))["Sales"]
-    .sum()
-)
+st.markdown("---")
 
-monthly_sales.index = monthly_sales.index.to_timestamp()
+col1, col2 = st.columns(2)
 
-fig = px.line(
-    x=monthly_sales.index,
-    y=monthly_sales.values,
-    labels={"x": "Month", "y": "Sales"},
-    title="Monthly Sales Trend"
-)
+with col1:
+    st.subheader("Sales Trend Over Time")
+    sales_trend = (
+        df.groupby(df["OrderDate"].dt.to_period("M"))["Sales"]
+        .sum()
+        .reset_index()
+    )
+    sales_trend["OrderDate"] = sales_trend["OrderDate"].dt.to_timestamp()
 
-st.plotly_chart(fig)
+    fig_sales = px.line(
+        sales_trend,
+        x="OrderDate",
+        y="Sales",
+        labels={"OrderDate": "Month", "Sales": "Sales"},
+        title="Monthly Sales Trend"
+    )
+
+    st.plotly_chart(fig_sales)
+
 
 # Sales & Profit by Region
-region_analysis = (
+
+with col2:
+    st.subheader("Sales and Profit by Region")
+
+    region_analysis = (
     df.groupby("Region")[["Sales", "Profit"]]
     .sum()
     .reset_index()
 )
 
-fig_region = px.bar(
+    fig_region = px.bar(
     region_analysis,
     x="Region",
     y=["Sales", "Profit"],
@@ -83,39 +95,42 @@ fig_region = px.bar(
     title="Sales and Profit by Region"
 )
 
-st.plotly_chart(fig_region)
+    st.plotly_chart(fig_region)
 
-category_analysis = (
-    df.groupby("Category")["Sales"]
-    .sum()
-    .reset_index()
-)
+col3, col4 = st.columns(2)
+with col3:
+    st.subheader("Sales by Segment")
+    segment_analysis = (
+        df.groupby("Segment")["Sales"]
+        .sum()
+        .reset_index()
+    )
 
-fig_category = px.pie(
-    category_analysis,
-    names="Category",
-    values="Sales",
-    title="Sales Distribution by Category"
-)
+    fig_segment = px.bar(
+        segment_analysis,
+        x="Segment",
+        y="Sales",
+        title="Sales by Segment"
+    )
 
-st.plotly_chart(fig_category)
+    st.plotly_chart(fig_segment)
 
-top_customers = (
-    df.groupby("CustomerName")["Sales"]
-    .sum()
-    .sort_values(ascending=False)
-    .head(10)
-    .reset_index()
-)
+with col4:
+    st.subheader("Sales by Category")
+    category_analysis = (
+        df.groupby("Category")["Sales"]
+        .sum()
+        .reset_index()
+    )
 
-fig_customer = px.bar(
-    top_customers,
-    x="CustomerName",
-    y="Sales",
-    title="Top 10 Customers"
-)
+    fig_category = px.bar(
+        category_analysis,
+        x="Category",
+        y="Sales",
+        title="Sales by Category"
+    )
 
-st.plotly_chart(fig_customer)
+    st.plotly_chart(fig_category)
 
 st.subheader("Retail Data")
 
