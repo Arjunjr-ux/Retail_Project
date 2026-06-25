@@ -184,6 +184,10 @@ This project demonstrates the complete data analytics workflow, from raw data cl
 
 ![Charts](Retail_Project/Screenshots/Screenshot%202026-06-24%20041538.png)
 
+## Live Dashboard
+
+https://your-dashboard.streamlit.app
+
 ## 👨‍💻 Author
 
 **Arjun Baburaj**
