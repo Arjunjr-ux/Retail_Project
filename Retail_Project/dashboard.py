@@ -1,9 +1,10 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+from pathlib import Path
 
-# Load dataset
-df = pd.read_csv("retail_sales_clean.csv")
+BASE_DIR = Path(__file__).parent
+df = pd.read_csv(BASE_DIR / "retail_sales_clean.csv")
 
 # Dashboard title
 st.title("Retail Sales Dashboard")
