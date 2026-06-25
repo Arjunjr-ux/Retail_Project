@@ -186,7 +186,7 @@ This project demonstrates the complete data analytics workflow, from raw data cl
 
 ## Live Dashboard
 
-https://your-dashboard.streamlit.app
+https://retailproject-mtcemtqjuq4lappwh2w6rcu.streamlit.app/
 
 ## 👨‍💻 Author
 
