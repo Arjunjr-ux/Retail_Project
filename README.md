@@ -4,6 +4,12 @@ An end-to-end Data Analytics project that involves data cleaning, exploratory an
 
 ---
 
+## 🌐 Live Dashboard
+
+🔗 https://retailproject-mtcemtqjuq4lappwh2w6rcu.streamlit.app/
+
+---
+
 ## 🚀 Project Overview
 
 The goal of this project is to transform raw retail sales data into meaningful business insights through:
@@ -183,10 +189,6 @@ This project demonstrates the complete data analytics workflow, from raw data cl
 ### Charts
 
 ![Charts](Retail_Project/Screenshots/Screenshot%202026-06-24%20041538.png)
-
-## Live Dashboard
-
-https://retailproject-mtcemtqjuq4lappwh2w6rcu.streamlit.app/
 
 ## 👨‍💻 Author
 
